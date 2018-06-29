@@ -16,6 +16,8 @@ namespace SudokuSolver
                 SudokuFileReader sudokuFileReader = new SudokuFileReader();
                 SudokuBoardDisplayer sudokuBoardDisplayer = new SudokuBoardDisplayer();
 
+                while (true) { 
+
                 Console.WriteLine("Please enter the filename containing the Sudoku Puzzle:");
                 var filename = Console.ReadLine();
 
@@ -28,6 +30,9 @@ namespace SudokuSolver
                 Console.WriteLine(isSudokuSolved 
                     ? "You have successfully solved this Sudoku Puzzle!"
                     : "Unfortunatley, current algorithm(s) were not enough to solve the current Sudoku Puzzle!");
+                Console.ReadLine();
+                    
+                }
             }
             catch (Exception ex)
             {
