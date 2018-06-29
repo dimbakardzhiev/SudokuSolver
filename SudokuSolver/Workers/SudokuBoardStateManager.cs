@@ -13,17 +13,17 @@ namespace SudokuSolver.Workers
             StringBuilder key = new StringBuilder();
 
             for (int row = 0; row < sudokuBoard.GetLength(0); row++)
-            {               
+            {
                 for (int col = 0; col < sudokuBoard.GetLength(1); col++)
                 {
                     key.Append(sudokuBoard[row, col]);
-                }               
+                }
             }
 
             return key.ToString();
         }
 
-        public bool IsSolved(int[,]sudokuBoard)
+        public bool IsSolved(int[,] sudokuBoard)
         {
             for (int row = 0; row < sudokuBoard.GetLength(0); row++)
             {
@@ -36,6 +36,6 @@ namespace SudokuSolver.Workers
                 }
             }
             return true;
-        }       
+        }
     }
 }

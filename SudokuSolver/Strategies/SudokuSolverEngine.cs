@@ -1,4 +1,5 @@
-﻿using SudokuSolver.Workers;
+﻿using SudokuSolver.Strategies;
+using SudokuSolver.Workers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,12 @@ namespace SudokuSolver.Strategies
 {
     class SudokuSolverEngine
     {
-        private readonly SudokuBoardStateManager _sudokBoardStateManager;
+        private readonly SudokuBoardStateManager _sudokuBoardStateManager;
         private readonly SudokuMapper _sudokuMapper;
 
         public SudokuSolverEngine(SudokuBoardStateManager sudokuBoardStateManager, SudokuMapper sudokuMapper)
         {
-            _sudokBoardStateManager = sudokuBoardStateManager;
+            _sudokuBoardStateManager = sudokuBoardStateManager;
             _sudokuMapper = sudokuMapper;
         }
 
@@ -26,16 +27,16 @@ namespace SudokuSolver.Strategies
                 new NakedPairsStrategy(_sudokuMapper)
             };
 
-            var currentState = _sudokBoardStateManager.GenerateState(sudokuBoard);
-            var nextState = _sudokBoardStateManager.GenerateState(strategies.First().Solve(sudokuBoard));
+            var currentState = _sudokuBoardStateManager.GenerateState(sudokuBoard);
+            var nextState = _sudokuBoardStateManager.GenerateState(strategies.First().Solve(sudokuBoard));
 
-            while (!_sudokBoardStateManager.IsSolved(sudokuBoard) && currentState != nextState)
+            while(!_sudokuBoardStateManager.IsSolved(sudokuBoard) && currentState != nextState)
             {
                 currentState = nextState;
-                foreach (var strategy in strategies) nextState = _sudokBoardStateManager.GenerateState(strategy.Solve(sudokuBoard));                
+                foreach (var strategy in strategies) nextState = _sudokuBoardStateManager.GenerateState(strategy.Solve(sudokuBoard));
             }
-
-            return _sudokBoardStateManager.IsSolved(sudokuBoard);
+            
+            return _sudokuBoardStateManager.IsSolved(sudokuBoard);
         }
     }
 }

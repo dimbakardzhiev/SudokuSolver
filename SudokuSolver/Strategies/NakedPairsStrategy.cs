@@ -18,7 +18,7 @@ namespace SudokuSolver.Strategies
 
         public int[,] Solve(int[,] sudokuBoard)
         {
-            for(int row = 0; row < sudokuBoard.GetLength(0); row++)
+            for (int row = 0; row < sudokuBoard.GetLength(0); row++)
             {
                 for (int col = 0; col < sudokuBoard.GetLength(1); col++)
                 {
@@ -37,13 +37,13 @@ namespace SudokuSolver.Strategies
 
             for (int col = 0; col < sudokuBoard.GetLength(1); col++)
             {
-               if (sudokuBoard[givenRow, col] != sudokuBoard[givenRow, givenCol] && sudokuBoard[givenRow, col].ToString().Length > 1)
+                if (sudokuBoard[givenRow, col] != sudokuBoard[givenRow, givenCol] && sudokuBoard[givenRow, col].ToString().Length > 1)
                 {
                     EliminateNakedPair(sudokuBoard, sudokuBoard[givenRow, givenCol], givenRow, col);
-                } 
+                }
             }
         }
-
+        
         private bool HasNakedPairInRow(int[,] sudokuBoard, int givenRow, int givenCol)
         {
             for (int col = 0; col < sudokuBoard.GetLength(1); col++)
