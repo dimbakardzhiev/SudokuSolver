@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SudokuSolver
+namespace SudokuSolver.Data
 {
-    class Program
+    class SudokuMap
     {
-        static void Main(string[] args)
-        {
-
-        }
+        public int StartRow { get; set; }
+        public int StartCol { get; set; }
     }
 }

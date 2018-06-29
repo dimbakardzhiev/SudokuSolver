@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SudokuSolver
+namespace SudokuSolver.Strategies
 {
-    class Program
+    interface ISudokuStrategy
     {
-        static void Main(string[] args)
-        {
-
-        }
+        int[,] Solve(int[,] sudokuBoard);
     }
 }
