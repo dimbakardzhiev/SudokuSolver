@@ -11,10 +11,7 @@ namespace SudokuSolver.Strategies
     {
         private readonly SudokuMapper _sudokuMapper;
 
-        public NakedPairsStrategy(SudokuMapper sudokuMapper)
-        {
-            _sudokuMapper = sudokuMapper;
-        }
+        public NakedPairsStrategy(SudokuMapper sudokuMapper) => _sudokuMapper = sudokuMapper;
 
         public int[,] Solve(int[,] sudokuBoard)
         {
